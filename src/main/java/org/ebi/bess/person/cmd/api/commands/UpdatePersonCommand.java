@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class UpdateUserCommand {
+public class UpdatePersonCommand {
     @TargetAggregateIdentifier
     private String id;
 

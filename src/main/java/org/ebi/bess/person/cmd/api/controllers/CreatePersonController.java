@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.ebi.bess.person.cmd.api.commands.RegisterUserCommand;
+import org.ebi.bess.person.cmd.api.commands.CreatePersonCommand;
 import org.ebi.bess.person.cmd.api.dto.RegisterUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class CreatePersonController {
     }
 
     @PostMapping
-    public ResponseEntity<RegisterUserResponse> registerUser(@Valid @RequestBody RegisterUserCommand command) {
+    public ResponseEntity<RegisterUserResponse> registerUser(@Valid @RequestBody CreatePersonCommand command) {
         var id = UUID.randomUUID().toString();
         command.setId(id);
 

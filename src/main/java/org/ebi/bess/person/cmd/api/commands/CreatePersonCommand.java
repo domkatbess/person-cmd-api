@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterUserCommand {
+public class CreatePersonCommand {
     @TargetAggregateIdentifier
     private String id;
 

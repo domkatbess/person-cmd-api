@@ -6,7 +6,7 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Data
 @AllArgsConstructor
-public class RemoveUserCommand {
+public class RemovePersonCommand {
     @TargetAggregateIdentifier
     private String id;
 }

@@ -3,7 +3,7 @@ package org.ebi.bess.person.cmd.api.controllers;
 import javax.validation.Valid;
 
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.ebi.bess.person.cmd.api.commands.UpdateUserCommand;
+import org.ebi.bess.person.cmd.api.commands.UpdatePersonCommand;
 import org.ebi.bess.person.core.dto.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class UpdatePersonController {
 
     @PutMapping(path = "/{id}")
     public ResponseEntity<BaseResponse> updateUser(@PathVariable(value = "id") String id,
-                                                   @Valid @RequestBody UpdateUserCommand command) {
+                                                   @Valid @RequestBody UpdatePersonCommand command) {
         try {
             command.setId(id);
             commandGateway.send(command);

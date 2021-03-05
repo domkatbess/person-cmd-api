@@ -1,7 +1,7 @@
 package org.ebi.bess.person.cmd.api.controllers;
 
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.ebi.bess.person.cmd.api.commands.RemoveUserCommand;
+import org.ebi.bess.person.cmd.api.commands.RemovePersonCommand;
 import org.ebi.bess.person.core.dto.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class DeletePersonController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<BaseResponse> removeUser(@PathVariable(value = "id") String id) {
         try {
-            commandGateway.send(new RemoveUserCommand(id));
+            commandGateway.send(new RemovePersonCommand(id));
 
             return new ResponseEntity<>(new BaseResponse("User successfully removed!"), HttpStatus.OK);
         } catch (Exception e) {
