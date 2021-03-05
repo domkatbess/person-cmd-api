@@ -1,0 +1,11 @@
+org/ebi/bess/person/cmd/api/PersonCommandApiApplication.class
+org/ebi/bess/person/cmd/api/commands/RemovePersonCommand.class
+org/ebi/bess/person/cmd/api/controllers/DeletePersonController.class
+org/ebi/bess/person/cmd/api/controllers/CreatePersonController.class
+org/ebi/bess/person/cmd/api/commands/CreatePersonCommand.class
+org/ebi/bess/person/cmd/api/commands/CreatePersonCommand$CreatePersonCommandBuilder.class
+org/ebi/bess/person/cmd/api/controllers/UpdatePersonController.class
+org/ebi/bess/person/cmd/api/dto/RegisterUserResponse.class
+org/ebi/bess/person/cmd/api/commands/UpdatePersonCommand.class
+org/ebi/bess/person/cmd/api/commands/UpdatePersonCommand$UpdatePersonCommandBuilder.class
+org/ebi/bess/person/cmd/api/aggregates/PersonAggregate.class

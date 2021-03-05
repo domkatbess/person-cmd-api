@@ -10,9 +10,9 @@ import org.axonframework.spring.stereotype.Aggregate;
 import org.ebi.bess.person.cmd.api.commands.CreatePersonCommand;
 import org.ebi.bess.person.cmd.api.commands.RemovePersonCommand;
 import org.ebi.bess.person.cmd.api.commands.UpdatePersonCommand;
-import org.ebi.bess.person.core.events.UserRegisteredEvent;
-import org.ebi.bess.person.core.events.UserRemovedEvent;
-import org.ebi.bess.person.core.events.UserUpdatedEvent;
+import org.ebi.bess.person.core.events.PersonCreatedEvent;
+import org.ebi.bess.person.core.events.PersonRemovedEvent;
+import org.ebi.bess.person.core.events.PersonUpdatedEvent;
 import org.ebi.bess.person.core.models.Person;
 
 @Aggregate
@@ -33,7 +33,7 @@ public class PersonAggregate {
         newUser.setId(command.getId());
   
 
-        var event = UserRegisteredEvent.builder()
+        var event = PersonCreatedEvent.builder()
                 .id(command.getId())
                 .user(newUser)
                 .build();
@@ -47,7 +47,7 @@ public class PersonAggregate {
         updatedUser.setId(command.getId());
 
 
-        var event = UserUpdatedEvent.builder()
+        var event = PersonUpdatedEvent.builder()
                 .id(UUID.randomUUID().toString())
                 .user(updatedUser)
                 .build();
@@ -57,25 +57,25 @@ public class PersonAggregate {
 
     @CommandHandler
     public void handle(RemovePersonCommand command) {
-        var event = new UserRemovedEvent();
+        var event = new PersonRemovedEvent();
         event.setId(command.getId());
 
         AggregateLifecycle.apply(event);
     }
 
     @EventSourcingHandler
-    public void on(UserRegisteredEvent event) {
+    public void on(PersonCreatedEvent event) {
         this.id = event.getId();
         this.user = event.getUser();
     }
 
     @EventSourcingHandler
-    public void on(UserUpdatedEvent event) {
+    public void on(PersonUpdatedEvent event) {
         this.user = event.getUser();
     }
 
     @EventSourcingHandler
-    public void on(UserRemovedEvent event) {
+    public void on(PersonRemovedEvent event) {
         AggregateLifecycle.markDeleted();
     }
 }

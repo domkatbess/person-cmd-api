@@ -1,0 +1,9 @@
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/commands/UpdatePersonCommand.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/aggregates/PersonAggregate.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/commands/RemovePersonCommand.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/PersonCommandApiApplication.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/controllers/DeletePersonController.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/controllers/CreatePersonController.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/commands/CreatePersonCommand.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/controllers/UpdatePersonController.java
+/home/domkat/Documents/algol/person.cmd.api/src/main/java/org/ebi/bess/person/cmd/api/dto/RegisterUserResponse.java
