@@ -6,7 +6,7 @@ import javax.validation.Valid;
 
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.ebi.bess.person.cmd.api.commands.CreatePersonCommand;
-import org.ebi.bess.person.cmd.api.dto.RegisterUserResponse;
+import org.ebi.bess.person.cmd.api.dto.CreatePersonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,19 +26,20 @@ public class CreatePersonController {
     }
 
     @PostMapping
-    public ResponseEntity<RegisterUserResponse> registerUser(@Valid @RequestBody CreatePersonCommand command) {
+    public ResponseEntity<CreatePersonResponse> createPerson(@Valid @RequestBody CreatePersonCommand command) {
         var id = UUID.randomUUID().toString();
+        System.out.println(command.getUser().getFirstName());
         command.setId(id);
 
         try {
             commandGateway.send(command);
 
-            return new ResponseEntity<>(new RegisterUserResponse(id, "User successfully registered!"), HttpStatus.CREATED);
+            return new ResponseEntity<>(new CreatePersonResponse(id, "User successfully registered!"), HttpStatus.CREATED);
         } catch (Exception e) {
             var safeErrorMessage = "Error while processing register user request for id - " + id;
             System.out.println(e.toString());
 
-            return new ResponseEntity<>(new RegisterUserResponse(id, safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new CreatePersonResponse(id, safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
